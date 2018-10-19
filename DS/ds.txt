@@ -1,0 +1,12 @@
+A distributed Multi text editor
+with the help of mutual exclusion principles
+Imagine three chat windows on three different pcs
+
+when one is writing, the other two will display msg dont write now.
+once hes writing is over, after clicking submit, the other two can
+start writing,
+
+A queue will be maintained to make sure the process wich requests
+first for writing is given the chance first
+
+Probably: Python
