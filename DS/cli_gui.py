@@ -28,9 +28,9 @@ colors = ['orange', 'black', 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
 
 root.configure(background=random.choice(colors))
 
-root.title('Editor')
+root.title('Text Editor')
 
-basic_msg=Label(root,text="FIRST Screen, Enter your Text Below")
+basic_msg=Label(root,text="Enter your Text Below")
 basic_msg.pack()
 
 Editor = Text(root, width=50, height=15)
@@ -40,13 +40,13 @@ message_from_gui = ""
 def writer():
     Editor.place(x=30, y=100)
     submit.place(x=30, y=360)
-    update.place(x=100, y=360)
+    update.place(x=120, y=360)
 
 
 def send_message():
     message_from_gui = Editor.get("1.0", "end-1c")
     message = message_from_gui
-    print("Message from GUI ", message)
+    print("\nMessage from GUI ", message)
     message = message+"\t"+str(datetime.datetime.now()) 
     server.send(message.encode()) 
     sys.stdout.write("<You>") 
@@ -73,11 +73,7 @@ IP_address = str(sys.argv[1])
 Port = int(sys.argv[2]) 
 server.connect((IP_address, Port)) 
   
-while True:
-	
-	# maintains a list of possible input streams 
-    sockets_list = [sys.stdin, server]
-    read_sockets,write_socket, error_socket = select.select(sockets_list,[],[]) 
+while True: 
     
     recv_message()
       

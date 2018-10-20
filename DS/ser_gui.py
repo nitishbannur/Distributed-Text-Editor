@@ -42,6 +42,10 @@ server.listen(100)
 list_of_clients = [] 
 
 common_message = ["Welcome to the Text Editor", str(datetime.datetime.now())]
+
+with open('logfile.csv', 'w', encoding='UTF-8') as log_file :
+    writer = csv.writer(log_file)
+    writer.writerows([["Message Received", "Sent By IP", "Sent at Time", "Message"]])
   
 def clientthread(conn, addr): 
   
